@@ -22,12 +22,12 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
+wget -c https://gitlab.gnome.org/GNOME/gtranslator/-/archive/45.alpha0/gtranslator-45.alpha0.tar.gz
 
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=gtranslator			
-VERSION=${VERSION:-42.0}	
+VERSION=${VERSION:-45.alpha0}	
 BUILD=${BUILD:-1}
 TAG=${TAG:-_gfs}		
 PKGTYPE=${PKGTYPE:-tgz}
@@ -113,10 +113,10 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a README.md THANKS AUTHORS COPYING MAINTAINERS NEWS \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
